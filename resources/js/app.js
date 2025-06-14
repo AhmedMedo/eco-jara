@@ -1,6 +1,8 @@
 import { createApp } from 'vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
+import './bootstrap';
+import '../css/app.css';
 
 // Import components
 import Login from './components/Login.vue';
@@ -26,15 +28,6 @@ const router = createRouter({
     routes
 });
 
-// Setup axios
-import axios from 'axios';
-window.axios = axios;
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-let token = document.head.querySelector('meta[name="csrf-token"]');
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-}
 
 const app = createApp(App);
 app.use(router);
