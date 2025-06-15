@@ -20,7 +20,7 @@
           :to="item.href"
           :class="[
             'sidebar-link',
-            $route.name === item.href.substring(1) ? 'active' : ''
+            $route.path === item.href ? 'active' : ''
           ]"
         >
           <component :is="item.icon" class="w-5 h-5 mr-3" />
@@ -104,15 +104,15 @@ import {
 const route = useRoute();
 
 const navigation = [
-  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
-  { name: 'Marketplace', href: '/marketplace', icon: ShoppingBagIcon },
-  { name: 'Certificates', href: '/certificates', icon: DocumentDuplicateIcon },
-  { name: 'Reports', href: '/reports', icon: ChartBarIcon },
-  { name: 'Settings', href: '/settings', icon: CogIcon },
+  { name: 'Dashboard', href: '/seller/dashboard', icon: HomeIcon },
+  { name: 'Marketplace', href: '/seller/marketplace', icon: ShoppingBagIcon },
+  { name: 'Certificates', href: '/seller/certificates', icon: DocumentDuplicateIcon },
+  { name: 'Reports', href: '/seller/reports', icon: ChartBarIcon },
+  { name: 'Settings', href: '/seller/settings', icon: CogIcon },
 ];
 
 const currentPageTitle = computed(() => {
-  const currentNav = navigation.find(item => item.href === `/${route.name}`);
+  const currentNav = navigation.find(item => item.href === route.path);
   return currentNav ? currentNav.name : 'Dashboard';
 });
 </script>
