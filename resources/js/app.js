@@ -14,13 +14,13 @@ import Settings from './components/Settings.vue';
 
 // Setup router
 const routes = [
-    { path: '/', redirect: '/login' },
-    { path: '/login', component: Login, name: 'login' },
-    { path: '/dashboard', component: Dashboard, name: 'dashboard' },
-    { path: '/marketplace', component: Marketplace, name: 'marketplace' },
-    { path: '/certificates', component: Certificates, name: 'certificates' },
-    { path: '/reports', component: Reports, name: 'reports' },
-    { path: '/settings', component: Settings, name: 'settings' }
+    { path: '/', redirect: '/seller/login' },
+    { path: '/seller/login', component: Login, name: 'login' },
+    { path: '/seller/dashboard', component: Dashboard, name: 'dashboard' },
+    { path: '/seller/marketplace', component: Marketplace, name: 'marketplace' },
+    { path: '/seller/certificates', component: Certificates, name: 'certificates' },
+    { path: '/seller/reports', component: Reports, name: 'reports' },
+    { path: '/seller/settings', component: Settings, name: 'settings' }
 ];
 
 const router = createRouter({

@@ -118,7 +118,7 @@ const handleLogin = async () => {
     loading.value = false;
     // For demo purposes, always succeed
     localStorage.setItem('auth_token', 'demo_token');
-    router.push('/dashboard');
+    router.push('/seller/dashboard');
   }, 1500);
 };
 </script>
