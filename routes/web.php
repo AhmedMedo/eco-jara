@@ -35,6 +35,9 @@ Route::prefix('buyer')->group(function () {
         return view('buyer');
     });
 
+    Route::get('/register', function () {
+        return view('buyer');
+    });
     Route::get('/dashboard', function () {
         return view('buyer');
     });

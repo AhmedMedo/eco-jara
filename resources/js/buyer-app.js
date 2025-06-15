@@ -14,6 +14,7 @@ import BuyerSettings from './components/buyer/BuyerSettings.vue';
 const routes = [
     { path: '/', redirect: '/buyer/login' },
     { path: '/buyer/login', component: BuyerLogin, name: 'buyer-login' },
+    { path: '/buyer/register', component: BuyerRegister, name: 'buyer-register' },
     { path: '/buyer/dashboard', component: BuyerDashboard, name: 'buyer-dashboard' },
     { path: '/buyer/marketplace', component: BuyerMarketplace, name: 'buyer-marketplace' },
     { path: '/buyer/certificates', component: BuyerCertificates, name: 'buyer-certificates' },
@@ -28,6 +29,7 @@ const router = createRouter({
 
 // Setup axios
 import axios from 'axios';
+import BuyerRegister from "./components/buyer/BuyerRegister.vue";
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
