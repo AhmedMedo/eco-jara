@@ -46,17 +46,17 @@
               <div class="relative w-16 h-16 mt-2">
                 <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
                   <path
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    fill="none"
-                    stroke="#e5e7eb"
-                    stroke-width="2"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                      fill="none"
+                      stroke="#e5e7eb"
+                      stroke-width="2"
                   />
                   <path
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    fill="none"
-                    stroke="#3b82f6"
-                    stroke-width="2"
-                    :stroke-dasharray="`${28.4 * 0.284}, 100`"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                      fill="none"
+                      stroke="#3b82f6"
+                      stroke-width="2"
+                      :stroke-dasharray="`${28.4 * 0.284}, 100`"
                   />
                 </svg>
                 <div class="absolute inset-0 flex items-center justify-center">
@@ -79,17 +79,17 @@
               <div class="relative w-16 h-16 mt-2">
                 <svg class="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
                   <path
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    fill="none"
-                    stroke="#e5e7eb"
-                    stroke-width="2"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                      fill="none"
+                      stroke="#e5e7eb"
+                      stroke-width="2"
                   />
                   <path
-                    d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
-                    fill="none"
-                    stroke="#8b5cf6"
-                    stroke-width="2"
-                    :stroke-dasharray="`${83.3 * 0.833}, 100`"
+                      d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                      fill="none"
+                      stroke="#8b5cf6"
+                      stroke-width="2"
+                      :stroke-dasharray="`${83.3 * 0.833}, 100`"
                   />
                 </svg>
                 <div class="absolute inset-0 flex items-center justify-center">
@@ -151,24 +151,42 @@
         </div>
       </div>
 
-      <!-- Projects Table -->
+      <!-- Tabs Section -->
       <div class="bg-white rounded-lg shadow-sm">
         <div class="px-6 py-4 border-b border-gray-200">
           <div class="flex items-center justify-between">
-            <div class="flex items-center space-x-4">
-              <h3 class="text-lg font-semibold text-gray-900">Project</h3>
-              <button class="text-sm text-gray-500 border-b border-transparent hover:border-gray-300 transition-colors duration-200">
+            <div class="flex items-center space-x-8">
+              <button
+                  @click="activeTab = 'project'"
+                  :class="[
+                  'pb-2 text-sm font-medium border-b-2 transition-colors duration-200',
+                  activeTab === 'project'
+                    ? 'text-primary-teal border-primary-teal'
+                    : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300'
+                ]"
+              >
+                Project
+              </button>
+              <button
+                  @click="activeTab = 'transactions'"
+                  :class="[
+                  'pb-2 text-sm font-medium border-b-2 transition-colors duration-200',
+                  activeTab === 'transactions'
+                    ? 'text-primary-teal border-primary-teal'
+                    : 'text-gray-500 border-transparent hover:text-gray-700 hover:border-gray-300'
+                ]"
+              >
                 Transactions
               </button>
             </div>
             <div class="flex items-center space-x-3">
-              <button class="btn-secondary">
+              <button class="btn-secondary flex items-center">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/>
                 </svg>
                 Filter
               </button>
-              <button class="btn-primary">
+              <button class="btn-primary flex items-center">
                 <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
                 </svg>
@@ -177,49 +195,11 @@
             </div>
           </div>
         </div>
-        
-        <div class="overflow-x-auto">
-          <table class="min-w-full divide-y divide-gray-200">
-            <thead class="table-header">
-              <tr>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project ID</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Project Name</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Country</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Type</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Commission Date</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Registration Date</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Expiry Date</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Capacity</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Volume</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Available</th>
-                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Redemption</th>
-              </tr>
-            </thead>
-            <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="project in projects" :key="project.id" class="hover:bg-gray-50 transition-colors duration-200">
-                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary-teal">{{ project.id }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ project.name }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.country }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <div class="flex items-center">
-                    <component :is="project.typeIcon" :class="project.typeColor" class="w-4 h-4 mr-2" />
-                    <span class="text-sm text-gray-900">{{ project.type }}</span>
-                  </div>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.commissionDate }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.registrationDate }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.expiryDate }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.capacity }}</td>
-                <td class="px-6 py-4 whitespace-nowrap">
-                  <span :class="project.statusClass" class="status-badge">{{ project.status }}</span>
-                </td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.totalVolume }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.totalAvailable }}</td>
-                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.totalRedemption }}</td>
-              </tr>
-            </tbody>
-          </table>
+
+        <!-- Tab Content -->
+        <div class="p-0">
+          <ProjectTab v-if="activeTab === 'project'" />
+          <TransactionsTab v-if="activeTab === 'transactions'" />
         </div>
       </div>
     </div>
@@ -229,83 +209,15 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import Layout from './Layout.vue';
+import ProjectTab from './dashboard/ProjectTab.vue';
+import TransactionsTab from './dashboard/TransactionsTab.vue';
 import { Chart, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
 const pieChart = ref(null);
 const lineChart = ref(null);
-
-const projects = ref([
-  {
-    id: 'IREC-20230001',
-    name: 'Benban Solar Park',
-    country: 'Egypt',
-    type: 'Solar',
-    typeIcon: 'SunIcon',
-    typeColor: 'text-orange-500',
-    commissionDate: '01-01-2020',
-    registrationDate: '01-05-2020',
-    expiryDate: '01-01-2030',
-    capacity: '50 MW',
-    status: 'Active',
-    statusClass: 'status-active',
-    totalVolume: '5000',
-    totalAvailable: '3000',
-    totalRedemption: '2000'
-  },
-  {
-    id: 'IREC-20230001',
-    name: 'Zafarana Wind',
-    country: 'Egypt',
-    type: 'Wind',
-    typeIcon: 'WindIcon',
-    typeColor: 'text-blue-500',
-    commissionDate: '01-01-2020',
-    registrationDate: '01-05-2020',
-    expiryDate: '01-01-2030',
-    capacity: '50 MW',
-    status: 'Inactive',
-    statusClass: 'status-inactive',
-    totalVolume: '5000',
-    totalAvailable: '3000',
-    totalRedemption: '2000'
-  },
-  {
-    id: 'IREC-20230001',
-    name: 'Aswan Hydro',
-    country: 'Egypt',
-    type: 'Hydro',
-    typeIcon: 'WaterIcon',
-    typeColor: 'text-cyan-500',
-    commissionDate: '01-01-2020',
-    registrationDate: '01-05-2020',
-    expiryDate: '01-01-2030',
-    capacity: '50 MW',
-    status: 'Cancelled',
-    statusClass: 'status-cancelled',
-    totalVolume: '5000',
-    totalAvailable: '3000',
-    totalRedemption: '2000'
-  },
-  {
-    id: 'IREC-20230001',
-    name: 'Benban Solar Park',
-    country: 'Egypt',
-    type: 'Bio',
-    typeIcon: 'LeafIcon',
-    typeColor: 'text-green-500',
-    commissionDate: '01-01-2020',
-    registrationDate: '01-05-2020',
-    expiryDate: '01-01-2030',
-    capacity: '50 MW',
-    status: 'Inactive',
-    statusClass: 'status-inactive',
-    totalVolume: '5000',
-    totalAvailable: '3000',
-    totalRedemption: '2000'
-  }
-]);
+const activeTab = ref('project');
 
 onMounted(() => {
   // Initialize Pie Chart
