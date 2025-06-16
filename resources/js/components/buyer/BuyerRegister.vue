@@ -3,11 +3,7 @@
     <div class="max-w-md w-full space-y-8">
       <div class="text-center">
         <div class="flex justify-center mb-6">
-          <div class="w-16 h-16 bg-brand-teal rounded-full flex items-center justify-center">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5z" clip-rule="evenodd"/>
-            </svg>
-          </div>
+          <img :src="logo" alt="Ecojarah" class="w-16 h-16" />
         </div>
         <h2 class="text-3xl font-bold text-gray-900 mb-2">Ecojarah</h2>
         <p class="text-gray-600">Create your buyer account</p>
@@ -177,6 +173,7 @@
 <script setup>
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
+import logo from '../../../images/logo.png';
 
 const router = useRouter();
 const loading = ref(false);
