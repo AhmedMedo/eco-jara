@@ -3,7 +3,7 @@
     <div class="max-w-md w-full space-y-8">
       <div class="text-center">
         <div class="flex justify-center mb-6">
-          <div class="w-16 h-16 bg-primary-teal rounded-full flex items-center justify-center">
+          <div class="w-16 h-16 bg-brand-teal rounded-full flex items-center justify-center">
             <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
               <path fill-rule="evenodd" d="M10 2L3 7v11a1 1 0 001 1h12a1 1 0 001-1V7l-7-5z" clip-rule="evenodd"/>
             </svg>
@@ -12,7 +12,7 @@
         <h2 class="text-3xl font-bold text-gray-900 mb-2">Ecojarah</h2>
         <p class="text-gray-600">Sign in to your buyer dashboard</p>
       </div>
-      
+
       <form @submit.prevent="handleLogin" class="mt-8 space-y-6">
         <div class="space-y-4">
           <div>
@@ -20,28 +20,28 @@
               Email Address
             </label>
             <input
-              id="email"
-              name="email"
-              type="email"
-              v-model="form.email"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-colors duration-200"
-              placeholder="Enter your email"
+                id="email"
+                name="email"
+                type="email"
+                v-model="form.email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-colors duration-200"
+                placeholder="Enter your email"
             />
           </div>
-          
+
           <div>
             <label for="password" class="block text-sm font-medium text-gray-700 mb-2">
               Password
             </label>
             <input
-              id="password"
-              name="password"
-              type="password"
-              v-model="form.password"
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-teal focus:border-transparent transition-colors duration-200"
-              placeholder="Enter your password"
+                id="password"
+                name="password"
+                type="password"
+                v-model="form.password"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-teal focus:border-transparent transition-colors duration-200"
+                placeholder="Enter your password"
             />
           </div>
         </div>
@@ -49,11 +49,11 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <input
-              id="remember"
-              name="remember"
-              type="checkbox"
-              v-model="form.remember"
-              class="h-4 w-4 text-primary-teal border-gray-300 rounded focus:ring-primary-teal"
+                id="remember"
+                name="remember"
+                type="checkbox"
+                v-model="form.remember"
+                class="h-4 w-4 text-brand-teal border-gray-300 rounded focus:ring-brand-teal"
             />
             <label for="remember" class="ml-2 block text-sm text-gray-700">
               Remember me
@@ -61,7 +61,7 @@
           </div>
 
           <div class="text-sm">
-            <a href="#" class="font-medium text-primary-teal hover:text-primary-teal-dark transition-colors duration-200">
+            <a href="#" class="font-medium text-brand-teal hover:text-brand-teal-dark transition-colors duration-200">
               Forgot password?
             </a>
           </div>
@@ -69,9 +69,9 @@
 
         <div>
           <button
-            type="submit"
-            :disabled="loading"
-            class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary-teal hover:bg-primary-teal-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-teal transition-colors duration-200 disabled:opacity-50"
+              type="submit"
+              :disabled="loading"
+              class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-brand-teal hover:bg-brand-teal-dark focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-teal transition-colors duration-200 disabled:opacity-50"
           >
             <span v-if="loading" class="flex items-center">
               <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -86,8 +86,14 @@
 
         <div class="text-center">
           <p class="text-sm text-gray-600">
+            Don't have an account?
+            <router-link to="/buyer/register" class="font-medium text-brand-teal hover:text-brand-teal-dark transition-colors duration-200">
+              Register here
+            </router-link>
+          </p>
+          <p class="text-sm text-gray-600 mt-2">
             Are you a seller?
-            <a href="/login" class="font-medium text-primary-teal hover:text-primary-teal-dark transition-colors duration-200">
+            <a href="/login" class="font-medium text-brand-teal hover:text-brand-teal-dark transition-colors duration-200">
               Sign in here
             </a>
           </p>
@@ -112,7 +118,7 @@ const form = ref({
 
 const handleLogin = async () => {
   loading.value = true;
-  
+
   // Simulate API call
   setTimeout(() => {
     loading.value = false;

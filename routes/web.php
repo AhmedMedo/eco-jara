@@ -3,30 +3,28 @@
 use Illuminate\Support\Facades\Route;
 
 // Seller routes
-Route::prefix('seller')->group(function () {
-    Route::get('/login', function () {
-        return view('app');
-    });
+Route::get('/login', function () {
+    return view('app');
+});
 
-    Route::get('/dashboard', function () {
-        return view('app');
-    });
+Route::get('/dashboard', function () {
+    return view('app');
+});
 
-    Route::get('/marketplace', function () {
-        return view('app');
-    });
+Route::get('/marketplace', function () {
+    return view('app');
+});
 
-    Route::get('/certificates', function () {
-        return view('app');
-    });
+Route::get('/certificates', function () {
+    return view('app');
+});
 
-    Route::get('/reports', function () {
-        return view('app');
-    });
+Route::get('/reports', function () {
+    return view('app');
+});
 
-    Route::get('/settings', function () {
-        return view('app');
-    });
+Route::get('/settings', function () {
+    return view('app');
 });
 
 // Buyer routes
@@ -38,6 +36,11 @@ Route::prefix('buyer')->group(function () {
     Route::get('/register', function () {
         return view('buyer');
     });
+
+    Route::get('/account-review', function () {
+        return view('buyer');
+    });
+
     Route::get('/dashboard', function () {
         return view('buyer');
     });

@@ -4,6 +4,8 @@ import BuyerApp from './BuyerApp.vue';
 
 // Import buyer components
 import BuyerLogin from './components/buyer/BuyerLogin.vue';
+import BuyerRegister from './components/buyer/BuyerRegister.vue';
+import BuyerAccountReview from './components/buyer/BuyerAccountReview.vue';
 import BuyerDashboard from './components/buyer/BuyerDashboard.vue';
 import BuyerMarketplace from './components/buyer/BuyerMarketplace.vue';
 import BuyerCertificates from './components/buyer/BuyerCertificates.vue';
@@ -15,6 +17,7 @@ const routes = [
     { path: '/', redirect: '/buyer/login' },
     { path: '/buyer/login', component: BuyerLogin, name: 'buyer-login' },
     { path: '/buyer/register', component: BuyerRegister, name: 'buyer-register' },
+    { path: '/buyer/account-review', component: BuyerAccountReview, name: 'buyer-account-review' },
     { path: '/buyer/dashboard', component: BuyerDashboard, name: 'buyer-dashboard' },
     { path: '/buyer/marketplace', component: BuyerMarketplace, name: 'buyer-marketplace' },
     { path: '/buyer/certificates', component: BuyerCertificates, name: 'buyer-certificates' },
@@ -29,7 +32,6 @@ const router = createRouter({
 
 // Setup axios
 import axios from 'axios';
-import BuyerRegister from "./components/buyer/BuyerRegister.vue";
 window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

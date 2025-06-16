@@ -3,15 +3,20 @@
 @import 'tailwindcss/utilities';
 
 :root {
-    --primary-teal: #1a9ba8;
-    --primary-teal-dark: #0f7782;
-    --primary-teal-light: #2dd4bf;
-    --sidebar-bg: #1a4b5c;
-    --sidebar-hover: #2a5b6c;
+    --brand-teal: #167070;
+    --brand-teal-dark: #0f5050;
+    --brand-orange: #fe6625;
+    --brand-orange-light: #fb9335;
+    --brand-white: #ffffff;
+    --brand-beige: #c19f7a;
+    --brand-navy: #013f59;
+    --brand-light-green: #a7f3d0;
+    --sidebar-bg: #167070;
+    --sidebar-hover: #0f5050;
 }
 
 .sidebar-gradient {
-    background: linear-gradient(180deg, var(--sidebar-bg) 0%, var(--primary-teal-dark) 100%);
+    background: linear-gradient(180deg, var(--brand-teal) 0%, var(--brand-navy) 100%);
 }
 
 .chart-container {
@@ -57,7 +62,7 @@
 }
 
 .btn-primary {
-    @apply bg-teal-600 hover:bg-teal-700 text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200;
+    @apply bg-brand-teal hover:bg-brand-teal-dark text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200;
 }
 
 .btn-secondary {
