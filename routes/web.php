@@ -49,6 +49,10 @@ Route::prefix('buyer')->group(function () {
         return view('buyer');
     });
 
+    Route::get('/marketplace/project/{id}', function () {
+        return view('buyer');
+    });
+
     Route::get('/certificates', function () {
         return view('buyer');
     });

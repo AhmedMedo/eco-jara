@@ -142,7 +142,7 @@
 
       <!-- Grid View -->
       <div v-if="viewMode === 'grid'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div v-for="project in filteredProjects" :key="project.id" class="project-card">
+        <div v-for="project in filteredProjects" :key="project.id" class="project-card cursor-pointer" @click="viewProject(project)">
           <div class="relative h-48 bg-gradient-to-br from-orange-400 to-orange-600 overflow-hidden">
             <img 
               :src="project.image" 
@@ -202,7 +202,7 @@
               </div>
             </div>
             
-            <button class="w-full btn-primary">Buy Now</button>
+            <button @click.stop="buyNow(project)" class="w-full btn-primary">Buy Now</button>
           </div>
         </div>
       </div>
@@ -225,10 +225,11 @@
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Volume</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total Available</th>
                 <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Vintage</th>
+                <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
               </tr>
             </thead>
             <tbody class="bg-white divide-y divide-gray-200">
-              <tr v-for="project in filteredProjects" :key="project.id" class="hover:bg-gray-50 transition-colors duration-200">
+              <tr v-for="project in filteredProjects" :key="project.id" class="hover:bg-gray-50 transition-colors duration-200 cursor-pointer" @click="viewProject(project)">
                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-primary-teal">{{ project.projectId }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{{ project.name }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.country }}</td>
@@ -248,6 +249,14 @@
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.totalVolume }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.totalAvailable }}</td>
                 <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{{ project.vintage }}</td>
+                <td class="px-6 py-4 whitespace-nowrap">
+                  <button @click.stop="viewProject(project)" class="bg-primary-teal text-white px-3 py-1 rounded text-sm hover:bg-primary-teal-dark transition-colors duration-200 mr-2">
+                    View
+                  </button>
+                  <button @click.stop="buyNow(project)" class="bg-green-600 text-white px-3 py-1 rounded text-sm hover:bg-green-700 transition-colors duration-200">
+                    Buy
+                  </button>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -335,8 +344,10 @@
 
 <script setup>
 import { ref, computed } from 'vue';
+import { useRouter } from 'vue-router';
 import BuyerLayout from './BuyerLayout.vue';
 
+const router = useRouter();
 const viewMode = ref('grid');
 const showFilters = ref(false);
 const showCalculator = ref(false);
@@ -529,5 +540,14 @@ const applyFilters = () => {
 const browseIRECs = () => {
   showCalculator.value = false;
   // Scroll to projects or navigate
+};
+
+const viewProject = (project) => {
+  router.push({ name: 'buyer-project-detail', params: { id: project.projectId } });
+};
+
+const buyNow = (project) => {
+  // Handle direct purchase
+  console.log('Buy now:', project.name);
 };
 </script>
